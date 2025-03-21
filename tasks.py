@@ -1,6 +1,9 @@
 TASKS = [
-    "CRUSTY_SWAP",
+    "DISPERSE",
 ]
+
+
+DISPERSE = [ "disperse_farm_accounts", ]
 
 # MAGICEDEN WORKS ONLY WITH THESE NFT https://magiceden.io/mint-terminal/monad-testnet
 

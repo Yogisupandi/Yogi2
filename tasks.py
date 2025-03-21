@@ -1,5 +1,5 @@
 TASKS = [
-    "DISPERSE",
+    "FULL_TASK",
 ]
 
 

@@ -17,11 +17,14 @@ FAUCET = [
     "faucet",
 ]
 
-DUSTED = [
-    "dusted",
+
+NERZO_SOULBOUND = [
+    "nerzo_soulbound",
 ]
 
-GAMBLE = ["narwhal_finance"]
+MONAIGG = [
+    "monaigg",
+]
 
 """
 EN:
@@ -143,6 +146,7 @@ EXCHANGE_AND_MEMEBRIDGE_TASK = [
 # "bean" - swap tokens on Bean DEX
 # "ambient" - swap tokens on Ambient DEX
 # "izumi" - swap tokens on Izumi DEX
+# "madness_swaps" - swap tokens on madness.finance/swap
 
 # STAKES
 # "apriori" - stake MON token
@@ -151,6 +155,7 @@ EXCHANGE_AND_MEMEBRIDGE_TASK = [
 # "kintsu" - stake MON token on kintsu.xyz/
 # "nostra" - deposit, borrow, repay, withdraw
 # "multiplifi" - stake USDC token on https://testnet.multipli.fi/?stake-tab=stake
+# "flapsh" - buy memcoin for MON on https://monad.flap.sh/board
 
 # MINT
 # "magiceden" - mint NFT on magiceden.io
@@ -160,7 +165,10 @@ EXCHANGE_AND_MEMEBRIDGE_TASK = [
 # "monadking_unlocked" - mint NFT on www.nerzo.xyz/unlocked
 # "easynode_deploy" - deploy contract on easynode.xyz
 # "onchaingm_deploy" - deploy contract on onchaingm.com/deploy
-# "monai_legacy" - mint NFT on monaigg.xyz
+# "morkie_monhog" - mint NFT on https://morkie.xyz/monhog # price 0.5 MON
+# "morkie_monarch" - mint NFT on https://morkie.xyz/monarch # price 0.1 MON
+# "monaigg" - mint NFT on https://monai.gg/nft
+# "nerzo_soulbound" - mint NFT on https://nerzo.xyz/soulbound
 
 # REFUEL
 # "crusty_refuel" - refuel from arbitrum, optimism, base to monad

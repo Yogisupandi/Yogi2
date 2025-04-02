@@ -3,6 +3,10 @@ import primp
 import random
 import asyncio
 
+from src.model.swaps.madness.instance import Madness
+from src.model.nfts.nerzo import Nerzo
+from src.model.nfts.morkie import Morkie
+from src.model.swaps.flapsh.instance import Flapsh
 from src.model.stakings import Multiplifi
 from src.model.others.monsternad import monsternad_whitelist
 from src.model.narwhal_finance.instance import NarwhalFinance
@@ -10,7 +14,7 @@ from src.model.deploy.onchaingm.instance import OnChainGM
 from src.model.crusty_swap.instance import CrustySwap
 from src.model.deploy.easy_node.instance import EasyNode
 from src.model.swaps.octo_swap import OctoSwap
-from src.model.nfts.monaigg_nft import Legacy
+from src.model.nfts.monaigg_nft import Monai
 from src.model.nostra.instance import Nostra
 from src.model.frontrunner.instance import Frontrunner
 from src.model.cex_withdrawal.instance import CexWithdraw
@@ -365,16 +369,6 @@ class Start:
             )
             await cex_withdrawal.withdraw()
 
-        elif task == "monai_legacy":
-            monai_legacy = Legacy(
-                self.account_index,
-                self.proxy,
-                self.private_key,
-                self.config,
-                self.session,
-            )
-            await monai_legacy.mint()
-
         elif task == "octo_swap":
             octo_swap = OctoSwap(
                 self.account_index,
@@ -435,6 +429,59 @@ class Start:
             await multiplifi.faucet()
             await multiplifi.stake()
         
+        elif task == "flapsh":
+            flapsh = Flapsh(
+                self.account_index,
+                self.proxy,
+                self.private_key,
+                self.config,
+                self.session,
+            )
+            await flapsh.execute()
+        
+        elif task.startswith("morkie_"):
+            morkie = Morkie(
+                self.account_index,
+                self.proxy,
+                self.private_key,
+                self.config,
+                self.session,
+            )
+            if task == "morkie_monhog":
+                await morkie.mint_monhog()
+            elif task == "morkie_monarch":
+                await morkie.mint_monarch()
+                
+        elif task == "monaigg":
+            monaigg = Monai(
+                self.account_index,
+                self.proxy,
+                self.private_key,
+                self.config,
+                self.session,
+            )
+            await monaigg.mint()
+        
+        elif task == "nerzo_soulbound":
+            nerzo = Nerzo(
+                self.account_index,
+                self.proxy,
+                self.private_key,
+                self.config,
+                self.session,
+            )
+            await nerzo.mint()
+
+        elif task == "madness_swaps":
+            madness = Madness(
+                self.account_index,
+                self.proxy,
+                self.private_key,
+                self.config,
+                self.session,
+            )
+            await madness.execute()
+            
     async def sleep(self, task_name: str):
         """Делает рандомную паузу между действиями"""
         pause = random.randint(

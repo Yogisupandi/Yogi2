@@ -147,6 +147,11 @@ class OrbiterConfig:
 
 
 @dataclass
+class MadnessConfig:
+    SWAP_ALL_TO_MONAD: bool
+
+
+@dataclass
 class DisperseConfig:
     MIN_BALANCE_FOR_DISPERSE: Tuple[float, float]
 
@@ -210,6 +215,12 @@ class OctoSwapConfig:
     SWAP_ALL_TO_MONAD: bool
 
 @dataclass
+class FlapshConfig:
+    AMOUNT_TO_PAY: Tuple[float, float]
+    NUMBER_OF_MEMCOINS_TO_BUY: Tuple[int, int]
+    TOKEN_ADDRESS: List[str]
+
+@dataclass
 class Config:
     SETTINGS: SettingsConfig
     EXCHANGES: ExchangesConfig
@@ -234,6 +245,8 @@ class Config:
     NOSTRA: NostraConfig
     MONAIYAKUZA: MonaiyakuzaConfig
     NARWHAL_FINANCE: NarwhalFinanceConfig
+    FLAPSH: FlapshConfig
+    MADNESS: MadnessConfig
     WALLETS: WalletsConfig = field(default_factory=WalletsConfig)
     lock: asyncio.Lock = field(default_factory=asyncio.Lock)
 
@@ -456,6 +469,14 @@ class Config:
                 PLAY_SLOTS=data["NARWHAL_FINANCE"]["PLAY_SLOTS"],
                 PLAY_DICE=data["NARWHAL_FINANCE"]["PLAY_DICE"],
                 PLAY_COINFLIP=data["NARWHAL_FINANCE"]["PLAY_COINFLIP"],
+            ),
+            FLAPSH=FlapshConfig(
+                AMOUNT_TO_PAY=tuple(data["FLAPSH"]["AMOUNT_TO_PAY"]),
+                NUMBER_OF_MEMCOINS_TO_BUY=tuple(data["FLAPSH"]["NUMBER_OF_MEMCOINS_TO_BUY"]),
+                TOKEN_ADDRESS=data["FLAPSH"]["TOKEN_ADDRESS"],
+            ),
+            MADNESS=MadnessConfig(
+                SWAP_ALL_TO_MONAD=data["MADNESS"]["SWAP_ALL_TO_MONAD"],
             ),
         )
 
